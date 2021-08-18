@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: scanner
-            image: scanner:dev
+            image: marijanturcic/scanner
             imagePullPolicy: IfNotPresent
             command:
             - /bin/sh
