@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: scanner
+spec:
+  schedule: "0 5 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: scanner
+            image: scanner:dev
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - python3 scanner.py 127.0.0.1
+          restartPolicy: OnFailure
+
